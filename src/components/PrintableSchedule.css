@@ -1,0 +1,68 @@
+.printable-schedule {
+  padding: 15mm;
+  color: black;
+  background-color: white;
+  font-family: sans-serif;
+}
+
+.printable-schedule__title {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: capitalize;
+}
+
+.printable-schedule__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11pt;
+}
+
+.printable-schedule__row {
+  border-bottom: 1px solid #eeeeee;
+  page-break-inside: avoid;
+}
+
+.printable-schedule__time,
+.printable-schedule__title-cell {
+  vertical-align: top;
+  padding: 4px 8px;
+  font-weight: bold;
+}
+
+.printable-schedule__time {
+  width: 10%;
+  padding-right: 0;
+}
+
+.printable-schedule__title-cell {
+  width: 45%;
+}
+
+.printable-schedule__details {
+  width: 45%;
+  vertical-align: top;
+  padding: 4px 0 4px 8px;
+}
+
+.printable-schedule__verse-references {
+  font-style: italic;
+}
+
+.printable-schedule__readers {
+  font-size: 10pt;
+  color: #444;
+  margin-top: 2px;
+}
+
+.printable-schedule__details-text {
+  display: block;
+}
+
+.printable-schedule__versetto {
+  margin-top: 0;
+}
+
+.printable-schedule__versetto--with-details {
+  margin-top: 2px;
+}
