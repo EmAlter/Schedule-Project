@@ -94,21 +94,40 @@ export default function App() {
               position: 'fixed',
               right: 12,
               bottom: 12,
-              p: 1,
+              p: 1.5,
               px: 2,
               backgroundColor: 'rgba(255,255,255,0.85)',
               borderRadius: 1,
               boxShadow: 2,
               zIndex: 999,
               border: '1px solid rgba(0,0,0,0.08)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: 0.5
             }}
           >
             <Typography variant="caption" color="text.secondary" sx={{ display: 'block', whiteSpace: 'nowrap' }}>
               © {new Date().getFullYear()} - Schedule Project - v0.1.0-alpha
             </Typography>
-            <Typography variant="caption" color="text.secondary" sx={{ display: 'block', whiteSpace: 'nowrap' }}>
+            <Typography variant="caption" color="text.secondary" sx={{ display: 'block', whiteSpace: 'nowrap', mb: 1 }}>
               Support: <strong>dimaggio.emanuele@gmail.com</strong>
             </Typography>
+
+            <a
+              href="https://www.buymeacoffee.com/emalter"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'inline-block', transition: 'transform 0.2s' }}
+              onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+            >
+              <img
+                src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=emalter&button_colour=FFDD00&font_colour=000000&font_family=Bree&outline_colour=000000&coffee_colour=ffffff"
+                alt="Buy me a coffee"
+                style={{ height: '40px', display: 'block' }}
+              />
+            </a>
           </Box>
         </Box>
       </BrowserRouter>

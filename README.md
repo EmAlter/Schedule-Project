@@ -5,6 +5,8 @@
 ![Vite](https://img.shields.io/badge/Vite-5-646CFF.svg?logo=vite)
 ![Tauri](https://img.shields.io/badge/Tauri-2-FFC131.svg?logo=tauri)
 
+[![Buy Me A Coffee](https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=emalter&button_colour=FFDD00&font_colour=000000&font_family=Bree&outline_colour=000000&coffee_colour=ffffff)](https://www.buymeacoffee.com/emalter)
+
 A modern, lightweight, and open-source application for creating and managing schedules for liturgical services and community gatherings. 
 
 Built with **React** and **Vite**, this project is designed to be completely **database-agnostic**. It can run as a Web application hosted on a server (connected to cloud databases like Supabase or Firebase) or as a native, offline Desktop application (powered by Tauri).
