@@ -108,7 +108,7 @@ export default function App() {
             }}
           >
             <Typography variant="caption" color="text.secondary" sx={{ display: 'block', whiteSpace: 'nowrap' }}>
-              © {new Date().getFullYear()} - Schedule Project - v0.1.0-alpha
+              © {new Date().getFullYear()} - Schedule Project - v0.1.0
             </Typography>
             <Typography variant="caption" color="text.secondary" sx={{ display: 'block', whiteSpace: 'nowrap', mb: 1 }}>
               Support: <strong>dimaggio.emanuele@gmail.com</strong>

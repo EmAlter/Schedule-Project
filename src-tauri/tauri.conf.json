@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "schedule-project",
-  "version": "0.1.0-alpha",
+  "version": "0.1.0",
   "identifier": "com.scheduleproject.app",
   "build": {
     "frontendDist": "../dist",
