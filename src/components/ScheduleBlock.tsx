@@ -12,7 +12,6 @@ interface ScheduleBlockProps {
     dragHandleProps?: any;
 }
 
-// MICRO-COMPONENTE ISOLATO 1: Evita il lag quando scrivi i capitoli
 const VerseAdder = ({ onAdd }: { onAdd: (v: VerseReference) => void }) => {
     const [tempBook, setTempBook] = useState('Genesi');
     const [tempChapter, setTempChapter] = useState('');
@@ -38,7 +37,6 @@ const VerseAdder = ({ onAdd }: { onAdd: (v: VerseReference) => void }) => {
     );
 };
 
-// MICRO-COMPONENTE ISOLATO 2: Evita il lag quando scrivi il nome del lettore
 const ReaderAdder = ({ onAdd }: { onAdd: (r: Reader) => void }) => {
     const [tempReaderName, setTempReaderName] = useState('');
     const [tempReaderLangCode, setTempReaderLangCode] = useState('it');
@@ -76,7 +74,7 @@ const ReaderAdder = ({ onAdd }: { onAdd: (r: Reader) => void }) => {
     );
 };
 
-// COMPONENTE PRINCIPALE
+// MAIN COMPONENT: ScheduleBlock, memoized to prevent unnecessary re-renders and optimized with micro-components for adding verses and readers without lag
 function ScheduleBlock({ data, onUpdate, onDelete, dragHandleProps }: ScheduleBlockProps) {
 
     const DragHandle = () => (
@@ -123,7 +121,7 @@ function ScheduleBlock({ data, onUpdate, onDelete, dragHandleProps }: ScheduleBl
                         display: 'flex',
                         flexDirection: 'column',
                         gap: 2,
-                        pt: 2, // Ridotto per far spazio al selettore
+                        pt: 2,
                         pr: { xs: 6, sm: 10 }
                     }}>
                         <TypeSelector />
@@ -206,6 +204,13 @@ function ScheduleBlock({ data, onUpdate, onDelete, dragHandleProps }: ScheduleBl
         );
     };
 
+    // Stato locale per l'orario, sincronizzato con data.time
+    const [localTime, setLocalTime] = useState(data.time ?? '10:00');
+
+    // Aggiorna lo stato locale se il blocco cambia (es. drag/drop o reset)
+    // (opzionale: solo se vuoi sincronizzare anche da fuori)
+    // useEffect(() => { setLocalTime(data.time ?? '10:00'); }, [data.time]);
+
     return (
         <Box sx={{ display: 'flex', gap: '16px', marginBottom: '12px', alignItems: 'stretch' }}>
             <Box sx={{ width: '80px', flexShrink: 0, pt: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -213,14 +218,17 @@ function ScheduleBlock({ data, onUpdate, onDelete, dragHandleProps }: ScheduleBl
                     <>
                         <TextField
                             type="time" variant="standard"
-                            defaultValue={data.time}
-                            onBlur={(e) => onUpdate(data.id, 'time', e.target.value)}
+                            value={localTime}
+                            onChange={(e) => {
+                                setLocalTime(e.target.value);
+                                onUpdate(data.id, 'time', e.target.value);
+                            }}
                             InputProps={{ disableUnderline: true, sx: { fontSize: '1.2rem', fontWeight: 'bold' } }}
                         />
-                        <Button size="small" color="error" sx={{ fontSize: '0.6rem', mt: 0.5, p: 0, minWidth: 'auto' }} onClick={() => onUpdate(data.id, 'time', undefined)}>Remove</Button>
+                        <Button size="small" color="error" sx={{ fontSize: '0.6rem', mt: 0.5, p: 0, minWidth: 'auto' }} onClick={() => { setLocalTime('10:00'); onUpdate(data.id, 'time', undefined); }}>Remove</Button>
                     </>
                 ) : (
-                    <Button variant="text" size="small" sx={{ fontSize: '0.7rem', textAlign: 'center', lineHeight: 1.2, color: 'text.secondary' }} onClick={() => onUpdate(data.id, 'time', '10:00')}>+ Add<br />Time</Button>
+                    <Button variant="text" size="small" sx={{ fontSize: '0.7rem', textAlign: 'center', lineHeight: 1.2, color: 'text.secondary' }} onClick={() => { setLocalTime('10:00'); onUpdate(data.id, 'time', '10:00'); }}>+ Add<br />Time</Button>
                 )}
             </Box>
             <Box sx={{ flexGrow: 1 }}>{renderCardContent()}</Box>
@@ -228,5 +236,5 @@ function ScheduleBlock({ data, onUpdate, onDelete, dragHandleProps }: ScheduleBl
     );
 }
 
-// 3. LA BLINDATURA: Questo componente si ricaricherà SOLO se i suoi dati specifici cambiano.
+// 3. Memoize the entire component to prevent re-renders unless the block data changes (e.g. when editing title, details, verses, or readers), which significantly improves performance when typing
 export default memo(ScheduleBlock, (prev, next) => prev.data === next.data);

@@ -5,7 +5,7 @@
 ![Vite](https://img.shields.io/badge/Vite-5-646CFF.svg?logo=vite)
 ![Tauri](https://img.shields.io/badge/Tauri-2-FFC131.svg?logo=tauri)
 
-[![Buy Me A Coffee](https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=emalter&button_colour=FFDD00&font_colour=000000&font_family=Bree&outline_colour=000000&coffee_colour=ffffff)](https://www.buymeacoffee.com/emalter)
+[![Buy Me A Coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=emalter&button_colour=FFDD00&font_colour=000000&font_family=Bree&outline_colour=000000&coffee_colour=ffffff)](https://www.buymeacoffee.com/emalter)
 
 A modern, lightweight, and open-source application for creating and managing schedules for liturgical services and community gatherings. 
 
