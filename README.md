@@ -29,7 +29,7 @@ If you want to host the application on your own server or test it in the browser
 
 ### 1. Clone the repository
 ```bash
-git clone [https://github.com/your-username/Schedule-Project.git](https://github.com/your-username/Schedule-Project.git)
+git clone [https://github.com/EmAlter/Schedule-Project.git](https://github.com/EmAlter/Schedule-Project.git)
 cd Schedule-Project
 ```
 
@@ -102,7 +102,7 @@ npm run tauri build
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are always welcome! 
-Feel free to check the [issues page](https://github.com/your-username/Schedule-Project/issues) if you want to contribute to the code.
+Feel free to check the [issues page](https://github.com/EmAlter/Schedule-Project/issues) if you want to contribute to the code.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
